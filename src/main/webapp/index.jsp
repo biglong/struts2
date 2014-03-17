@@ -7,7 +7,8 @@
     <s:head/>
 </head>
 <body>
-<h1>Welcome to Struts 2!!</h1>
+<h1><s:text name="greeting"/></h1>
+<h2>Welcome to Struts 2!!</h2>
 <p><a href="<s:url action='hello'/>">Hello World</a></p>
 <s:url action="hello" var="helloLink">
     <s:param name="userName">Bruce Phillips</s:param>
@@ -21,7 +22,16 @@
 </p>
 <p>I've said hello  <s:property value="helloCount" /> times! </p>
 <p><s:property value="messageStore" /> from toString </p>
-<s:url action="registerInput" var="registerInputLink"/>
+<s:url action="registerInput" var="registerInputLink">
+    <s:param name="request_locale" >zh_CN</s:param>
+</s:url>
+<s:url action="edit" var="editInputLink">
+    <s:param name="request_locale" >zh_CN</s:param>
+</s:url>
 <p><a href="${registerInputLink}">Please register</a> for our prize drawing</p>
+<p><a href="${editInputLink}">Edit</a> if you has login</p>
+
+<hr/>
+<p><s:text name="contact"/></p>
 </body>
 </html>

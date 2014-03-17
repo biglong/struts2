@@ -5,8 +5,26 @@
 
 <struts>
     <constant name="struts.devMode" value="true" />
+    <constant name="struts.custom.i18n.resources" value="global"/>
+
+    <constant name="struts.locale" value="zh_CN"/>
 
     <package name="basicstruts2" extends="struts-default">
+        <interceptors>
+            <interceptor-stack name="appDefaultStack">
+                <interceptor-ref name="defaultStack">
+                    <param name="exception.logEnabled">true</param>
+                    <param name="exception.logLevel">ERROR</param>
+                </interceptor-ref>
+            </interceptor-stack>
+        </interceptors>
+        <default-interceptor-ref name="appDefaultStack"/>
+        <global-results>
+            <result name="error">/error.jsp</result>
+        </global-results>
+        <global-exception-mappings>
+            <exception-mapping exception="java.lang.Exception" result="error"></exception-mapping>
+        </global-exception-mappings>
 
         <action name="index" class="helloworld.action.HelloWorldAction" method="execute">
             <result>/index.jsp</result>
@@ -21,5 +39,17 @@
         <action name="registerInput" class="helloworld.action.RegisterAction" method="input">
             <result name="input">/register.jsp</result>
         </action>
+        <action name="actionSpecifiedException" class="helloworld.action.RegisterAction" method="throwException">
+            <result name="login">/login.jsp</result>
+        </action>
+        <action name="edit" class="helloworld.action.EditAction" method="edit">
+            <result name="success">/edit.jsp</result>
+        </action>
+        <action name="save" class="helloworld.action.EditAction" method="save">
+            <result name="success">/thankyou.jsp</result>
+        </action>
+
+
     </package>
+
 </struts>

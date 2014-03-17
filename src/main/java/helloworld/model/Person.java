@@ -13,6 +13,51 @@ public class Person {
     private String lastName;
     private String email;
     private Integer age;
+    private Integer phoneNumber;
+    private String sport;
+    private String residency;
+    private boolean over21;
+    private String [] carModels;
+
+    public String[] getCarModels() {
+        return carModels;
+    }
+
+    public void setCarModels(String[] carModels) {
+        this.carModels = carModels;
+    }
+
+    public boolean isOver21() {
+        return over21;
+    }
+
+    public void setOver21(boolean over21) {
+        this.over21 = over21;
+    }
+
+    public String getResidency() {
+        return residency;
+    }
+
+    public void setResidency(String residency) {
+        this.residency = residency;
+    }
+
+    public String getSport() {
+        return sport;
+    }
+
+    public void setSport(String sport) {
+        this.sport = sport;
+    }
+
+    public Integer getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(Integer phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
 
     public Integer getAge() {
         return age;
